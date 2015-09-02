@@ -9,8 +9,6 @@ OBJS = 	build/sddtab.o \
 
 LIBS = -Llib -lsdd
 INCLUDES = -Iinclude
-CFLAGS = -Wall -O2 -c -g -std=c++11 -stdlib=libc++ $(INCLUDES)
-LFLAGS = -Wall -O2 -g -stdlib=libc++ $(LIBS)
 
 OS = $(shell uname)
 ifeq ($(OS), Darwin)
