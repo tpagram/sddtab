@@ -1,4 +1,4 @@
-#include "proverFactory.h"
+#include "provers/proverFactory.h"
 
 Prover* proverFactory::getProver(std::string logic, std::vector<KFormula*> literalsToAtoms, 
                                     std::map<const KFormula*, int, KFormula::less_than_unpack> atomsToLiterals) {

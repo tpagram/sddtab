@@ -1,4 +1,5 @@
 .DS_Store
+build/
 bin/
 paper/
 benchmarks/output.txt

@@ -1,4 +1,4 @@
-#include "s4Prover.h"
+#include "provers/s4Prover.h"
 
 S4Prover::S4Prover(std::vector<KFormula*> literalsToAtoms, 
                     std::map<const KFormula*, int, KFormula::less_than_unpack> atomsToLiterals) {

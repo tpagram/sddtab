@@ -1,4 +1,4 @@
-#include "compiler.h"
+#include "kf/compiler.h"
 
 //Converts a KFormula to a Sentential Decision Diagram.
 SddNode* compiler::KtoSDD(const KFormula* formula, SddManager* m) {

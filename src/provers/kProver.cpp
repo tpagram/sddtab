@@ -1,4 +1,4 @@
-#include "kProver.h"
+#include "provers/kProver.h"
 
 KProver::KProver(std::vector<KFormula*> literalsToAtoms, 
                     std::map<const KFormula*, int, KFormula::less_than_unpack> atomsToLiterals) {

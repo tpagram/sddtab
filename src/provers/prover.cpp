@@ -1,4 +1,4 @@
-#include "prover.h"
+#include "provers/prover.h"
 
 std::vector<SddLiteral> Prover::getOpenBranch(SddNode* alpha, std::vector<SddLiteral> variables) {
     if (sdd_node_is_literal(alpha)) {
