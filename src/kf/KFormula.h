@@ -1,7 +1,7 @@
 #ifndef _KFORMULA_H_
 #define _KFORMULA_H_
 extern "C" {
-   #include <sddapi.h> 
+   #include "sddapi.h" 
 }
 #include <set>
 #include <string>

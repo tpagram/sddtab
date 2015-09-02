@@ -2,7 +2,7 @@
 #define COMPILER_H
 
 extern "C" {
-   #include <sddapi.h> 
+   #include "sddapi.h" 
 }
 #include "KFormula.h"
 #include <iostream>

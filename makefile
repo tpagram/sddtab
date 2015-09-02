@@ -1,6 +1,6 @@
 OS = $(shell uname)
 MACC = clang++
-LINUXC = g++
+LINUXC = c++
 CPPFLAGS = -std=c++0x
 LIBRARIES = -Iinclude -Llib -lsdd
 EXEC = sddtab
@@ -9,5 +9,11 @@ all:compile
 
 ifeq ($(OS), Darwin)
 compile: src/sddtab.cpp
+	$(shell cp ./lib/libsdd_mac.a ./lib/libsdd.a)
 	$(MACC) -O2 -stdlib=libc++ $(CPPFLAGS) $(LIBRARIES) $(SRC) -o bin/$(EXEC)
+endif
+ifeq ($(OS), Linux)
+compile: src/sddtab.cpp
+	$(shell cp ./lib/libsdd_linux.a ./lib/libsdd.a)
+	$(LINUXC) -O2 $(CPPFLAGS) $(LIBRARIES) $(SRC) -o bin/$(EXEC)
 endif
