@@ -1,6 +1,6 @@
 OS = $(shell uname)
 MACC = clang++
-LINUXC = c++
+LINUXC = clang++
 CPPFLAGS = -std=c++0x
 LIBRARIES = -Iinclude -Llib -lsdd
 EXEC = sddtab
@@ -14,6 +14,5 @@ compile: src/sddtab.cpp
 endif
 ifeq ($(OS), Linux)
 compile: src/sddtab.cpp
-	$(shell cp ./lib/libsdd_linux.a ./lib/libsdd.a)
 	$(LINUXC) -O2 $(CPPFLAGS) $(LIBRARIES) $(SRC) -o bin/$(EXEC)
 endif
