@@ -1,0 +1,1 @@
+(p1 v ((((~p1) & (dia(box((dia p2) v p2)))) v ((~p1) & (dia(box((dia p1) v p2))))) v ((~p2) & (dia(box((dia p1) v p2)))))) v ((dia(box(~p1))) v p2)

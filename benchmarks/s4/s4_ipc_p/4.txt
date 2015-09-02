@@ -1,0 +1,1 @@
+((((box((box((box p1) -> ((((box p1) & (box p2)) & (box p3)) & (box p4)))) -> false)) & (box((box((box p2) -> ((((box p1) & (box p2)) & (box p3)) & (box p4)))) -> false))) & (box((box((box p3) -> ((((box p1) & (box p2)) & (box p3)) & (box p4)))) -> false))) & (box((box((box p4) -> ((((box p1) & (box p2)) & (box p3)) & (box p4)))) -> false))) -> false

@@ -1,0 +1,1 @@
+(((((box(box p11)) v (box(box p12))) v (box(box p13))) v (box(box p15))) v ((((((false v false) v (false v false)) v (false v false)) v (false v false)) v (false v false)) v (false v false))) v (dia((((dia(~p12)) v (dia(~p14))) v (dia(~p12))) v (dia(~p16))))

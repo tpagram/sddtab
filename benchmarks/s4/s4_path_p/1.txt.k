@@ -1,0 +1,1 @@
+((((([]([] p11)) | ([]([] p12))) | ([]([] p13))) | ([]([] p15))) | ((((((False | False) | (False | False)) | (False | False)) | (False | False)) | (False | False)) | (False | False))) | (<>((((<>(~p12)) | (<>(~p14))) | (<>(~p12))) | (<>(~p16))))

@@ -1,0 +1,1 @@
+(box(dia(((box(p1 <-> p2)) v (box p3)) v ((dia((p1 & (~p2)) v ((~p1) & p2))) v (box false))))) v (box((dia p1) -> (~p3)))

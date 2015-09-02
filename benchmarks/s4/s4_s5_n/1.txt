@@ -1,0 +1,1 @@
+(box(dia((box p6) v false))) v (box((dia p1) -> (~p6)))

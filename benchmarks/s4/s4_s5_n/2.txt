@@ -1,0 +1,1 @@
+(box(dia((box p12) v ((dia((p1 & (~p2)) v ((~p1) & p2))) v (box((dia((p2 & (~p3)) v ((~p2) & p3))) v (box((dia((p3 & (~p4)) v ((~p3) & p4))) v (box((dia((p4 & (~p5)) v ((~p4) & p5))) v (box((dia((p5 & (~p6)) v ((~p5) & p6))) v (box((dia((p6 & (~p7)) v ((~p6) & p7))) v (box false))))))))))))))) v (box((dia p1) -> (~p12)))
