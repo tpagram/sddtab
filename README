@@ -2,4 +2,12 @@ SDDTab
 Thomas Pagram, Jason Jingshi Li, Rajeev Gore
 email: firstname.lastname@anu.edu.au
 
+To Compile:
 
+MAC OSX: 
+Install clang++ (typically part of Apple's Xcode distribution);
+Enter 'make' in terminal within the sddtab directory.
+
+Linux:
+Install g++ (sudo apt-get install g++);
+Enter 'make' in terminal within the sddtab directory.
