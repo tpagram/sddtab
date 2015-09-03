@@ -61,8 +61,6 @@ int main(int argc, char** argv) {
     if (opts->verbose) std::cout << "SDD conversion complete!\n";
     
     //Check satisfiability or validity
-    int satisfactions = sdd_model_count(notPsiSdd,m);
-    std::cout << "satisfactions:" << satisfactions << "\n";
     Prover* prover = proverFactory::getProver(opts->logic,literalsToAtoms, atomsToLiterals);
     t1 = std::chrono::high_resolution_clock::now();
     bool isSat = prover->isSatisfiable(notPsiSdd,m);
@@ -86,19 +84,9 @@ int main(int argc, char** argv) {
         if (!isSat) std::cout << "\nPsi is valid!\n";
         else std::cout << "\nPsi is not valid!\n";
     }
-    std::cout << "manager size = " << sdd_manager_size(m) << "\n";
-    
-    std::ofstream results;
-    if (!opts->outputFile.empty()) {
-        results.open(opts->outputFile,std::ios::app);
-        if (results.is_open()) {
-            results << SddDuration << " " << sdd_size(notPsiSdd) << " " << satisfactions << "\n";
-        }
-    }
-    results.open("results/sddtab.txt",std::ios::app);
+    if (opts->verbose) std::cout << "manager size = " << sdd_manager_size(m) << "\n";
     
     //Finish up.
-    results.close();
     sdd_manager_free(m);
     return 0;
 }

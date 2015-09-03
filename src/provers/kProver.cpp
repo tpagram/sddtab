@@ -196,7 +196,6 @@ std::vector<SddLiteral> KProver::findMinimalSubsetPostJump(SddManager* m, SddLit
 		    else if (shareAnElement(postJumpResVars, getChildren(i))) {
                 minLits.push_back(i);
 			    responsibleVars.insert(i);
-                std::cout << "it's happening\n";
 			    postJumpResVars.insert(getChildren(i).begin(),
 										getChildren(i).end());
 			    newPostResVarsAdded = true;

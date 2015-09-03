@@ -348,7 +348,6 @@ KFormula* KFormula::parseKFormula(const char* str) {
   if (!str || !*str) return NULL;
 
   KFormula* ret = parseEQU(str);
-  std::cout << "DDEPTH" << depth << std::endl;
   while(isspace(*str)) ++str;
 
   if (*str) { std::cerr << "ERROR: \""<< *str << "\"" << std::endl;}
