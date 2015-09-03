@@ -229,7 +229,7 @@ bool KProver::cacheSat(SddNode* alpha) {
 }
 
 std::unordered_set<SddLiteral>& KProver::getChildren(SddLiteral i) {
-    i = abs(i);
+    i = std::abs(i);
 	if (literalsToChildren.at(i).empty()) {
 		KFormula::computeChildren(&literalsToAtoms[i]->getleft(), literalsToChildren.at(i));
 	}

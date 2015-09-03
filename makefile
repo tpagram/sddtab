@@ -7,17 +7,18 @@ OBJS = 	build/sddtab.o \
 	build/provers/s4Prover.o \
 	build/provers/proverFactory.o
 
-LIBS = -Llib -lsdd
-INCLUDES = -Iinclude
-
 OS = $(shell uname)
 ifeq ($(OS), Darwin)
 	CC = clang++
+	LIBS = -Llib -lsdd_mac
+	INCLUDES = -Iinclude
 	CFLAGS = -Wall -O2 -c -g -std=c++11 -stdlib=libc++ $(INCLUDES)
 	LFLAGS = -Wall -O2 -g -stdlib=libc++ $(LIBS)
 endif
 ifeq ($(UNAME), Linux)
 	CC = g++
+	LIBS = -Llib -lsdd_linux -lm
+	INCLUDES = -Iinclude
 	CFLAGS = -Wall -O2 -c -g -std=c++11 $(INCLUDES)
 	LFLAGS = -Wall -O2 -g $(LIBS)
 endif
@@ -73,7 +74,6 @@ build/provers/proverFactory.o : src/provers/proverFactory.cpp \
 			include/provers/kProver.h
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) src/provers/proverFactory.cpp -o build/provers/proverFactory.o
-
 
 clean:
 	$(RM) -r build bin

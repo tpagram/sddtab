@@ -107,6 +107,7 @@ int KFormula::compare(const KFormula & other) const {
 	else return right->compare(*other.right);
   }
   assert(false && "Fell out of complete switch!");
+  exit(0);
 }
 
 
@@ -447,6 +448,7 @@ KFormula* KFormula::toBoxNNF(KFormula* f) {
 		default:
 			assert(false && "Defaulted out of complete switch.");
 	}
+	exit(0);
 }
 
 std::vector<KFormula*> KFormula::getAtoms(KFormula* f) {

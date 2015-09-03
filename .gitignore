@@ -3,3 +3,5 @@ build/
 bin/
 paper/
 benchmarks/output.txt
+lib/libsdd.a
+

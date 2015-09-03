@@ -28,7 +28,7 @@ SddNode* Prover::branchToSDD(std::vector<SddLiteral> variables, SddManager* m) {
 int Prover::extractModals(std::vector<SddLiteral> variables, std::vector<SddLiteral>& boxes, std::vector<SddLiteral>& negBoxes) {
     int extracted = 0;
     for (SddLiteral i: variables) {
-        if (literalsToAtoms[abs(i)]->getop() == KFormula::BOX) {
+        if (literalsToAtoms[std::abs(i)]->getop() == KFormula::BOX) {
             extracted++;
             if (i >= 0) {
                 boxes.push_back(i);
@@ -64,7 +64,7 @@ bool Prover::shareAnElement(const std::unordered_set<SddLiteral>& firstSet,
 }
 
 /*std::unordered_set<SddLiteral>& Prover::getChildren(SddLiteral i) {
-    i = abs(i);
+    i = std::abs(i);
 	if (literalsToChildren.at(i).empty()) {
 		KFormula::computeChildren(&literalsToAtoms[i]->getleft(), literalsToChildren.at(i));
 	}
