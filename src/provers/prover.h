@@ -2,7 +2,7 @@
 #define PROVER_H
 
 extern "C" {
-   #include <sddapi.h> 
+   #include "sddapi.h" 
 }
 #include <iostream>
 #include <vector>

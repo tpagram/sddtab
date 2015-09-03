@@ -324,7 +324,7 @@ bool S4Prover::isSatisfiableRefined(SddNode* alpha, SddManager* m, std::unordere
 }
 
 std::unordered_set<SddLiteral>& S4Prover::getChildren(SddLiteral i) {
-    i = abs(i);
+    i = std::abs(i);
 	if (literalsToChildren.at(i).empty()) {
 		KFormula::computeChildren(&literalsToAtoms[i]->getleft(), literalsToChildren.at(i));
 	}
