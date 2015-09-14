@@ -6,6 +6,7 @@ Options::Options(int argc, char **argv) {
     logic = "K";
     verbose = false;
     satisfying = false;
+    reportSize = false;
     
     if (argc > 5) printHelp();
 	
@@ -20,6 +21,8 @@ Options::Options(int argc, char **argv) {
 			verbose = true;
 		} else if (strncmp(argv[i], "-sat", 4) == 0) {
 			satisfying = true;
+    	} else if (strncmp(argv[i], "-size", 4) == 0) {
+    		reportSize = true;			
 		} else if (strncmp(argv[i], "-o", 2) == 0) {
             outputFile = argv[i+1]; i++;
 		} else {

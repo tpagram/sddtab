@@ -9,6 +9,7 @@ struct Options {
     bool verbose;
     bool satisfying;
     std::string outputFile;
+    bool reportSize;
     
     Options(int argc, char **argv);
     void printHelp();

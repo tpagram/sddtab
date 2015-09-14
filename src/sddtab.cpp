@@ -58,6 +58,10 @@ int main(int argc, char** argv) {
     auto SddDuration = std::chrono::duration_cast<std::chrono::microseconds>( t2 - t1 ).count();
     int SddCount = sdd_count(notPsiSdd);
     int SddSize = sdd_size(notPsiSdd);
+    if (opts->reportSize) {
+        std::cout << SddCount << "\n";
+        return 0;
+    }
     if (opts->verbose) std::cout << "SDD conversion complete!\n";
     
     //Check satisfiability or validity

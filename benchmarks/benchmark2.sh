@@ -1,6 +1,6 @@
 # Example commands:
-# zsh benchmarks/benchmark2.sh ./bin/sddtab "-k" benchmarks/k benchmarks/output.txt 21 30
-# zsh benchmarks/benchmark2.sh ./bin/sddtab "-s4" benchmarks/s4 benchmarks/output.txt 21 30
+# $SHELL benchmarks/benchmark2.sh ./bin/sddtab "-k" benchmarks/k benchmarks/output.txt 21 30
+# $SHELL benchmarks/benchmark2.sh ./bin/sddtab "-s4" benchmarks/s4 benchmarks/output.txt 21 30
 
 SOLVER=$1
 SOLVER_ARGS=$2
@@ -15,9 +15,9 @@ do
 	then
 		MAX_FIN=0
 		ERROR=0
-		for i in $(seq 1 $MAX)
+		for i in {1..$MAX}
 		do
-			RES_STRING=$(gtimeout "$TIMEOUT"s bash -c "cat $BENCH_DIR/$i.txt.k | $SOLVER $SOLVER_ARGS")
+			RES_STRING=$(gtimeout "$TIMEOUT"s $SHELL -c "cat $BENCH_DIR/$i.txt.k | $SOLVER $SOLVER_ARGS")
 			STAT=$?
 			if [[ $STAT == 0 ]]
 			then
