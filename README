@@ -1,0 +1,45 @@
+=== SDDtab ===
+Thomas Pagram  
+email: firstname.lastname@anu.edu.au
+
+== Description ==
+
+SDDtab is an SDD-based modal theorem prover for logics K and S4.
+
+== Installation ==
+
+To compile, enter 'make' in the terminal within the sddtab directory. This will create the binary bin/sddtab.  
+SDDtab has been tested on both OSX and Ubuntu.
+
+== Usage ==
+
+SDDtab reads modal formulae from standard input with the following options:
+
+-k	Enabled by default. Solves the benchmark in modal logic K. Mutually exclusive with option -s4.  
+-s4	Solves the benchmark in modal logic S4. Mutually exclusive with option -k.  
+-v 	Enable verbose mode.  
+-sat 	If enabled, SDDtab will decide satisfiability. If not enabled, SDDtab defaults to deciding validity.  
+-size	SDDtab returns the size of the initial SDD constructed and does not solve the formulae.  
+
+SDDTab accepts formulae of the form:
+
+f :: 	prop  
+	~f  
+	f | f  
+	f & f  
+        f => f  
+        f <=> f  
+        <>f  
+        []f  
+        (f)  
+
+where prop is an alphanumeric sequence of characters.
+
+== Benchmarking ==
+
+The following scripts benchmark the highest instance solved and initial SDD size (respectively) for the LWB benchmark set.
+
+benchmark2.sh  
+benchmark2_size.sh
+
+Instructions and example commands are included within the scripts as comments.
