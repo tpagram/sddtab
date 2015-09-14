@@ -8,7 +8,7 @@ SDDtab is an SDD-based modal theorem prover for logics K and S4.
 
 == Installation ==
 
-To compile, enter 'make' in terminal within the sddtab directory. This will create the binary sddtab with the bin/ folder.
+To compile, enter 'make' in the terminal within the sddtab directory. This will create the binary bin/sddtab.
 SDDtab has been tested on both OSX and Ubuntu.
 
 == Usage ==
@@ -35,13 +35,11 @@ f :: 	prop
 
 where prop is an alphanumeric sequence of characters.
 
-== Usage ==
+== Benchmarking ==
 
-The scripts:
+The following scripts benchmark the highest instance solved and initial SDD size (respectively) for the LWB benchmark set.
 
 benchmark2.sh
 benchmark2_size.sh
-
-benchmark the highest instance solved and initial SDD size respectively for the LWB benchmark set.
 
 Instructions and example commands are included within the scripts as comments.
