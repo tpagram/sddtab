@@ -15,11 +15,14 @@ SDDtab has been tested on both OSX and Ubuntu.
 
 SDDtab reads modal formulae from standard input with the following options:
 
--k	Enabled by default. Solves the benchmark in modal logic K. Mutually exclusive with option -s4.  
+-k	Enabled by default. Solves the benchmark in modal logic K. Mutually exclusive 
+	with option -s4.  
 -s4	Solves the benchmark in modal logic S4. Mutually exclusive with option -k.  
 -v 	Enable verbose mode.  
--sat 	If enabled, SDDtab will decide satisfiability. If not enabled, SDDtab defaults to deciding validity.  
--size	SDDtab returns the size of the initial SDD constructed and does not solve the formulae.  
+-sat 	If enabled, SDDtab will decide satisfiability. If not enabled, SDDtab defaults
+	to deciding validity.  
+-size	SDDtab returns the size of the initial SDD constructed and does not solve
+	the formulae.  
 -help	Print a help message.
 
 SDDTab accepts formulae of the form:
