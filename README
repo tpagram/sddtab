@@ -20,6 +20,7 @@ SDDtab reads modal formulae from standard input with the following options:
 -v 	Enable verbose mode.  
 -sat 	If enabled, SDDtab will decide satisfiability. If not enabled, SDDtab defaults to deciding validity.  
 -size	SDDtab returns the size of the initial SDD constructed and does not solve the formulae.  
+-help	Print a help message.
 
 SDDTab accepts formulae of the form:
 
@@ -34,6 +35,9 @@ f :: 	prop
         (f)  
 
 where prop is an alphanumeric sequence of characters.
+
+Example command:
+cat benchmarks/k/k_branch_n/3.txt.k | bin/sddtab -v
 
 == Benchmarking ==
 

@@ -28,16 +28,14 @@ int main(int argc, char** argv) {
     } else {
         notPsiNNF = KFormula::toBoxNNF(new KFormula(KFormula::NOT,KFormula::parseKFormula(input.c_str()),NULL));
     }
-    if (opts->verbose) std::cout << "Kformulas built!\n";
+    if (opts->verbose) std::cout << "	Kformulas built!\n";
    
     //Gather atoms from KFormulas and assign literals.
     if (opts->verbose) std::cout << "Assigning literals...\n";
     std::vector<KFormula*> atoms = KFormula::getAtoms(notPsiNNF);
     SddLiteral var_count = compiler::setLiterals(atoms, literalsToAtoms, atomsToLiterals);
     if (opts->verbose) {
-        std::cout << "Literals assigned!\n";
-        std::cout << "var count = " << var_count << "\n";
-        std::cout << "number of lits: " << var_count << "\n";
+        std::cout << "	Literals assigned!\n";
     }
 
     //Initialise SDD library.
@@ -52,8 +50,6 @@ int main(int argc, char** argv) {
     std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
     SddNode* notPsiSdd = compiler::KtoSDD(notPsiNNF,m);
     sdd_ref(notPsiSdd,m);
-    //sdd_vtree_minimize(sdd_manager_vtree(m),m);
-    //sdd_manager_minimize(m);
     std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
     auto SddDuration = std::chrono::duration_cast<std::chrono::microseconds>( t2 - t1 ).count();
     int SddCount = sdd_count(notPsiSdd);
@@ -62,7 +58,7 @@ int main(int argc, char** argv) {
         std::cout << SddCount << "\n";
         return 0;
     }
-    if (opts->verbose) std::cout << "SDD conversion complete!\n";
+    if (opts->verbose) std::cout << "	SDD conversion complete!\n";
     
     //Check satisfiability or validity
     Prover* prover = proverFactory::getProver(opts->logic,literalsToAtoms, atomsToLiterals);
@@ -74,21 +70,23 @@ int main(int argc, char** argv) {
     
     //Output results.
     if (opts->verbose) {
-        std::cout << "Intial SDD size = " << SddSize << "\n";
-        std::cout << "Intial SDD count = " << SddCount << "\n"; 
-        std::cout << "time to build = " << SddDuration << "\n";
-        std::cout << "time to solve = " << SolveDuration << "\n";
-        std::cout << "total time = " << SddDuration + SolveDuration << "\n";
+	std::cout << "Stats:\n";
+        std::cout << "	Initial Lit count = " << var_count << "\n";
+        std::cout << "	Initial SDD size = " << SddSize << "\n";
+        std::cout << "	Initial SDD count = " << SddCount << "\n"; 
+	std::cout << "	Final manager size = " << sdd_manager_size(m) << "\n";
+        std::cout << "	Time to build = " << SddDuration << "\n";
+        std::cout << "	Time to solve = " << SolveDuration << "\n";
+        std::cout << "	Total time = " << SddDuration + SolveDuration << "\n\n";
     }
     if (opts->satisfying) {
-        if (!isSat) std::cout << "\nPsi is not satisfiable!\n";
-        else std::cout << "\nPsi is satisfiable!\n";
+        if (!isSat) std::cout << "Psi is not satisfiable!\n";
+        else std::cout << "Psi is satisfiable!\n";
     }
     else {
-        if (!isSat) std::cout << "\nPsi is valid!\n";
-        else std::cout << "\nPsi is not valid!\n";
+        if (!isSat) std::cout << "Psi is valid!\n";
+        else std::cout << "Psi is not valid!\n";
     }
-    if (opts->verbose) std::cout << "manager size = " << sdd_manager_size(m) << "\n";
     
     //Finish up.
     sdd_manager_free(m);

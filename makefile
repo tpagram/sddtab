@@ -1,7 +1,7 @@
 OBJS = 	build/sddtab.o \
 	build/options.o \
 	build/kf/compiler.o \
-	build/kf/Kformula.o \
+	build/kf/KFormula.o \
 	build/provers/prover.o \
 	build/provers/kProver.o \
 	build/provers/s4Prover.o \
@@ -14,8 +14,7 @@ ifeq ($(OS), Darwin)
 	INCLUDES = -Iinclude
 	CFLAGS = -Wall -O2 -c -g -std=c++11 -stdlib=libc++ $(INCLUDES)
 	LFLAGS = -Wall -O2 -g -stdlib=libc++ $(LIBS)
-endif
-ifeq ($(UNAME), Linux)
+else ifeq ($(OS), Linux)
 	CC = g++
 	LIBS = -Llib -lsdd_linux -lm
 	INCLUDES = -Iinclude
@@ -25,7 +24,7 @@ endif
 
 bin/sddtab : $(OBJS)
 	@mkdir -p $(dir $@)
-	$(CC) $(LFLAGS) $(OBJS) -o bin/sddtab
+	$(CC) $(OBJS) $(LFLAGS) -o bin/sddtab
 
 build/sddtab.o : 	src/sddtab.cpp \
 			include/options.h \
@@ -41,14 +40,14 @@ build/options.o : 	src/options.cpp \
 
 build/kf/compiler.o : 	src/kf/compiler.cpp \
 			include/kf/compiler.h \
-			include/kf/Kformula.h
+			include/kf/KFormula.h
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) src/kf/compiler.cpp -o build/kf/compiler.o
 
-build/kf/Kformula.o : 	src/kf/Kformula.cpp \
-			include/kf/kformula.h 
+build/kf/KFormula.o : 	src/kf/KFormula.cpp \
+			include/kf/KFormula.h 
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) src/kf/kformula.cpp -o build/kf/kformula.o
+	$(CC) $(CFLAGS) src/kf/KFormula.cpp -o build/kf/KFormula.o
 
 build/provers/prover.o : src/provers/prover.cpp \
 			include/provers/prover.h
